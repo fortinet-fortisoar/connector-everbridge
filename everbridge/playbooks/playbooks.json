@@ -1,0 +1,1106 @@
+{
+  "type": "workflow_collections",
+  "data": [
+    {
+      "@type": "WorkflowCollection",
+      "name": "Sample - Everbridge - 1.0.0",
+      "description": "Sample playbooks for \"Everbridge\" connector. If you are planning to use any of the sample playbooks in your environment, ensure that you clone those playbooks and move them to a different collection, since the sample playbook collection gets deleted during connector upgrade and delete.",
+      "visible": true,
+      "image": null,
+      "uuid": "b9270e91-7c2e-4f56-8718-470049a5fc9d",
+      "id": 403,
+      "deletedAt": null,
+      "importedBy": [],
+      "recordTags": [],
+      "workflows": [
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get Incident Details",
+          "aliasName": null,
+          "tag": null,
+          "description": "Retrieve a specific incident from Everbridge based on the organization ID and incident ID that you have specified.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1665053427,
+          "collection": "/api/3/workflow_collections/b9270e91-7c2e-4f56-8718-470049a5fc9d",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/5ea6cf4e-e59d-4dd3-b170-04e45495349d",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Incident Details",
+              "description": null,
+              "arguments": {
+                "name": "Everbridge",
+                "config": "",
+                "params": {
+                  "incidentId": 1,
+                  "organizationId": 1
+                },
+                "version": "1.0.0",
+                "connector": "everbridge",
+                "operation": "get_incident_details",
+                "operationTitle": "Get Incident Details",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "0b253fde-506f-47f7-a656-851a4a8cd0c8"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "e3eb148b-4cd9-41b0-91e1-5496a0381f4f",
+                "title": "Everbridge: Get Incident Details",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
+              "uuid": "5ea6cf4e-e59d-4dd3-b170-04e45495349d"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Get Incident Details",
+              "targetStep": "/api/3/workflow_steps/0b253fde-506f-47f7-a656-851a4a8cd0c8",
+              "sourceStep": "/api/3/workflow_steps/5ea6cf4e-e59d-4dd3-b170-04e45495349d",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "906a0d81-2727-467a-920e-93b2b069cc10"
+            }
+          ],
+          "groups": [],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "1b10475a-2d05-4463-99f9-3fbefadec00a",
+          "id": 5981,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "everbridge"
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "> Everbridge > Fetch Incidents",
+          "aliasName": null,
+          "tag": null,
+          "description": "Fetches all incidents from Everbridge based on the input parameters you have specified.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1665382727,
+          "collection": "/api/3/workflow_collections/b9270e91-7c2e-4f56-8718-470049a5fc9d",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/08bd59ff-f4f4-4df7-895a-1f4c088834bf",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  },
+                  "_configuration_schema": "[\n{\n    \"title\": \"Pull Threats from Last X Minutes\",\n    \"name\": \"Pull_Sample_Events_in_Past_X_Minutes\",\n    \"type\": \"text\",\n    \"tooltip\": \"Fetch incidents from last X minutes. e.g 5\",\n    \"required\": true,\n    \"editable\": true,\n    \"visible\": true,\n    \"value\": 10\n  }\n]",
+                  "EverbridgeLastAlertPullTime": "EverbridgeLastAlertPullTime_{{vars['audit_info']['cyops_playbook_iri'].split('/')[-1].replace('-','_')}}"
+                }
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62",
+              "group": null,
+              "uuid": "08bd59ff-f4f4-4df7-895a-1f4c088834bf"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Set Time Configuration",
+              "description": null,
+              "arguments": {
+                "curr_timestamp": "{{arrow.get( arrow.utcnow().timestamp).strftime('%Y-%m-%dT%H:%M:%S.%fZ')}}",
+                "last_pull_time": "{% if (vars.steps.Get_Macro_Value.data[\"hydra:member\"] | length) < 1%}{{arrow.utcnow().shift(minutes=-vars.Pull_Sample_Events_in_Past_X_Minutes).format('YYYY-MM-DDTHH:mm:ss.ssss')}}Z{% else %}{{vars.steps.Get_Macro_Value.data['hydra:member'][0]['value']}}{% endif %}"
+              },
+              "status": null,
+              "top": "435",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
+              "group": null,
+              "uuid": "5e15c259-ddf5-4221-b6d5-c283a1d8f4f3"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Macro Value",
+              "description": null,
+              "arguments": {
+                "params": {
+                  "iri": "/api/wf/api/dynamic-variable/?format=json&name={{vars.EverbridgeLastAlertPullTime}}",
+                  "body": "",
+                  "method": "GET"
+                },
+                "version": "3.2.1",
+                "connector": "cyops_utilities",
+                "operation": "make_cyops_request",
+                "operationTitle": "FSR: Make FortiSOAR API Call",
+                "step_variables": []
+              },
+              "status": null,
+              "top": "300",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0109f35d-090b-4a2b-bd8a-94cbc3508562",
+              "group": null,
+              "uuid": "63ffa2a4-089f-4572-8fef-0f315f26da6c"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Fetch Incidents",
+              "description": null,
+              "arguments": {
+                "name": "Everbridge",
+                "config": "",
+                "params": {
+                  "status": "All",
+                  "endTime": "{{vars.curr_timestamp}}",
+                  "dateType": "Created Date",
+                  "onlyOpen": false,
+                  "pageSize": "",
+                  "startTime": "{{vars.last_pull_time}}",
+                  "pageNumber": "",
+                  "incidentType": "Incident",
+                  "organizationId": 1
+                },
+                "version": "1.0.0",
+                "connector": "everbridge",
+                "operation": "get_incident_list",
+                "operationTitle": "Get Incident List",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "570",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "a23ba333-4a0f-4f2c-ac1d-b5a9dc2439eb"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Save Result",
+              "description": null,
+              "arguments": {
+                "data": "{{vars.steps.Fetch_Incidents.data.get(\"data\", []}}",
+                "macro_name": "{{vars.EverbridgeLastAlertPullTime}}",
+                "curr_timestamp": "{{vars.curr_timestamp}}"
+              },
+              "status": null,
+              "top": "705",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
+              "group": null,
+              "uuid": "e931b4d1-7515-4c14-b4b3-ba7f509564c3"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Configuration",
+              "description": null,
+              "arguments": {
+                "Pull_Sample_Events_in_Past_X_Minutes": "10"
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
+              "group": null,
+              "uuid": "fd92983b-8439-4b8a-bc12-71cf447a4767"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Fetch Incidents -> Save Result",
+              "targetStep": "/api/3/workflow_steps/e931b4d1-7515-4c14-b4b3-ba7f509564c3",
+              "sourceStep": "/api/3/workflow_steps/a23ba333-4a0f-4f2c-ac1d-b5a9dc2439eb",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "564933ad-f0aa-4384-a8c4-a43dfbe644c7"
+            },
+            {
+              "@type": "WorkflowRoute",
+              "name": "Configuration -> Get Macro Value",
+              "targetStep": "/api/3/workflow_steps/63ffa2a4-089f-4572-8fef-0f315f26da6c",
+              "sourceStep": "/api/3/workflow_steps/fd92983b-8439-4b8a-bc12-71cf447a4767",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "b5aa9a7f-f871-4280-a814-e6e7fefdd698"
+            },
+            {
+              "@type": "WorkflowRoute",
+              "name": "Get Macro Value -> Set Time Configuration",
+              "targetStep": "/api/3/workflow_steps/5e15c259-ddf5-4221-b6d5-c283a1d8f4f3",
+              "sourceStep": "/api/3/workflow_steps/63ffa2a4-089f-4572-8fef-0f315f26da6c",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "cad34acf-ec47-4aa3-b045-7cb44983a5b2"
+            },
+            {
+              "@type": "WorkflowRoute",
+              "name": "Set Time Configuration -> Fetch Incidents",
+              "targetStep": "/api/3/workflow_steps/a23ba333-4a0f-4f2c-ac1d-b5a9dc2439eb",
+              "sourceStep": "/api/3/workflow_steps/5e15c259-ddf5-4221-b6d5-c283a1d8f4f3",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "cdeaa3b7-d91a-4a0a-bab4-5da006615429"
+            },
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Configuration",
+              "targetStep": "/api/3/workflow_steps/fd92983b-8439-4b8a-bc12-71cf447a4767",
+              "sourceStep": "/api/3/workflow_steps/08bd59ff-f4f4-4df7-895a-1f4c088834bf",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "d1306b76-80ae-4614-9245-998ba539cb4d"
+            }
+          ],
+          "groups": [],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "2acd6088-234b-4f98-ac8d-6e76bd3b243e",
+          "id": 5982,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "dataingestion",
+            "fetch",
+            "everbridge"
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Update Incident",
+          "aliasName": null,
+          "tag": null,
+          "description": "Update an specific incident in Everbridge based on the organization ID, incident ID and other input parameters that you have specified.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1665053485,
+          "collection": "/api/3/workflow_collections/b9270e91-7c2e-4f56-8718-470049a5fc9d",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/4ce7f1fe-e522-40bc-acfc-11140ae233ad",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "3a894d24-4c57-4625-ac64-70d8830b823c",
+                "title": "Everbridge: Update Incident",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
+              "uuid": "4ce7f1fe-e522-40bc-acfc-11140ae233ad"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Update Incident",
+              "description": null,
+              "arguments": {
+                "name": "Everbridge",
+                "config": "",
+                "params": {
+                  "name": "",
+                  "closeBy": "",
+                  "incidentId": 1,
+                  "incidentMode": "",
+                  "incidentType": "",
+                  "incidentAction": "CloseWithoutNotification",
+                  "incidentStatus": "",
+                  "organizationId": 1,
+                  "additional_fields": ""
+                },
+                "version": "1.0.0",
+                "connector": "everbridge",
+                "operation": "update_incident",
+                "operationTitle": "Update Incident",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "801c60f9-8f00-4831-b043-2710f778995a"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Update Incident",
+              "targetStep": "/api/3/workflow_steps/801c60f9-8f00-4831-b043-2710f778995a",
+              "sourceStep": "/api/3/workflow_steps/4ce7f1fe-e522-40bc-acfc-11140ae233ad",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "da94f862-b984-4183-94cd-846b253e9afa"
+            }
+          ],
+          "groups": [],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "52fdec95-0df1-4792-b610-179aba029506",
+          "id": 5983,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "everbridge"
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "> Everbridge > Ingest",
+          "aliasName": null,
+          "tag": null,
+          "description": "This playbook demonstrate the list incidents operation.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1665383680,
+          "collection": "/api/3/workflow_collections/b9270e91-7c2e-4f56-8718-470049a5fc9d",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/4887a66c-3897-432a-9d5e-8e0800481a22",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "74801310-01af-41b3-928a-d88ac74dcedd",
+                "title": "Everbridge > Ingest",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
+              "uuid": "4887a66c-3897-432a-9d5e-8e0800481a22"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Configuration",
+              "description": null,
+              "arguments": {
+                "fetched_incidents": "{{vars.steps.List_Incidents}}"
+              },
+              "status": null,
+              "top": "300",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
+              "group": null,
+              "uuid": "95c507f4-864c-4aff-8f85-28c34b2edf19"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "List Incidents",
+              "description": null,
+              "arguments": {
+                "arguments": [],
+                "apply_async": false,
+                "step_variables": [],
+                "pass_input_record": true,
+                "workflowReference": "/api/3/workflows/2acd6088-234b-4f98-ac8d-6e76bd3b243e"
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/74932bdc-b8b6-4d24-88c4-1a4dfbc524f3",
+              "group": null,
+              "uuid": "cf25e6df-ab04-423f-bffd-ae3faf5a0558"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Update Last Alert Pull Time",
+              "description": null,
+              "arguments": {
+                "params": {
+                  "macro": "{{vars.steps.List_Incidents.macro_name}}",
+                  "value": "{{vars.steps.List_Incidents.curr_timestamp}}"
+                },
+                "version": "3.2.1",
+                "connector": "cyops_utilities",
+                "operation": "updatemacro",
+                "operationTitle": "FSR: Create/Update Global Variables",
+                "step_variables": []
+              },
+              "status": null,
+              "top": "570",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0109f35d-090b-4a2b-bd8a-94cbc3508562",
+              "group": null,
+              "uuid": "dcbc19af-2917-4de0-b6f3-c59444ed07d6"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Create Record",
+              "description": null,
+              "arguments": {
+                "for_each": {
+                  "item": "{{vars.steps.List_Incidents.data}}",
+                  "__bulk": true,
+                  "condition": "",
+                  "batch_size": 100
+                },
+                "resource": {
+                  "name": "{{vars.item.dataPageList.id}}",
+                  "type": "/api/3/picklists/574a6ee2-7265-4701-815e-cff83b053bce",
+                  "state": "/api/3/picklists/a1bac09b-1441-45aa-ad1b-c88744e48e72",
+                  "source": "Everbridge",
+                  "status": "/api/3/picklists/7de816ff-7140-4ee5-bd05-93ce22002146",
+                  "severity": "/api/3/picklists/58d0753f-f7e4-403b-953c-b0f521eab759",
+                  "sourceId": "{{vars.item.dataPageList.id}}",
+                  "__replace": "true",
+                  "sourcedata": "{{vars.item | toJSON}}",
+                  "ackSlaStatus": "/api/3/picklists/72979f64-e8b9-4888-a965-957e0ec24818",
+                  "respSlaStatus": "/api/3/picklists/72979f64-e8b9-4888-a965-957e0ec24818",
+                  "priorityWeight": 1,
+                  "escalatedtoincident": "/api/3/picklists/2128a09c-153d-4db3-985d-de6be33deae5",
+                  "alertRemainingAckSLA": 0
+                },
+                "operation": "Overwrite",
+                "collection": "/api/3/upsert/alerts",
+                "__recommend": [],
+                "fieldOperation": {
+                  "recordTags": "Overwrite"
+                },
+                "step_variables": []
+              },
+              "status": null,
+              "top": "435",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/2597053c-e718-44b4-8394-4d40fe26d357",
+              "group": null,
+              "uuid": "e737447c-71db-49a0-b1d9-202420147594"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> List Incidents",
+              "targetStep": "/api/3/workflow_steps/cf25e6df-ab04-423f-bffd-ae3faf5a0558",
+              "sourceStep": "/api/3/workflow_steps/4887a66c-3897-432a-9d5e-8e0800481a22",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "07ed8a99-0210-4d51-836e-c88979046ce5"
+            },
+            {
+              "@type": "WorkflowRoute",
+              "name": "Create Record -> Update Last Alert Pull Time",
+              "targetStep": "/api/3/workflow_steps/dcbc19af-2917-4de0-b6f3-c59444ed07d6",
+              "sourceStep": "/api/3/workflow_steps/e737447c-71db-49a0-b1d9-202420147594",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "84b8a491-f7ed-4f28-b013-54619c04dd07"
+            },
+            {
+              "@type": "WorkflowRoute",
+              "name": "Configuration -> Create Record",
+              "targetStep": "/api/3/workflow_steps/e737447c-71db-49a0-b1d9-202420147594",
+              "sourceStep": "/api/3/workflow_steps/95c507f4-864c-4aff-8f85-28c34b2edf19",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "a76a8e8b-9812-43c7-9649-50a7abe40a35"
+            },
+            {
+              "@type": "WorkflowRoute",
+              "name": "List Incidents -> Configuration",
+              "targetStep": "/api/3/workflow_steps/95c507f4-864c-4aff-8f85-28c34b2edf19",
+              "sourceStep": "/api/3/workflow_steps/cf25e6df-ab04-423f-bffd-ae3faf5a0558",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "fa66890f-3bed-4714-a6a4-d228901773f4"
+            }
+          ],
+          "groups": [],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "5e8e3aa7-162e-4fec-9e94-a57e364b779b",
+          "id": 5984,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "dataingestion",
+            "create",
+            "ingest",
+            "everbridge"
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get Organizations List",
+          "aliasName": null,
+          "tag": null,
+          "description": "Retrieves a list of organizations from Everbridge.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1665053320,
+          "collection": "/api/3/workflow_collections/b9270e91-7c2e-4f56-8718-470049a5fc9d",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/a7594d68-f50b-4876-8c0e-ab782466bf1c",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "e578e716-bc48-4c54-8beb-8cc48ca36256",
+                "title": "Everbridge: Get Organizations List",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
+              "uuid": "a7594d68-f50b-4876-8c0e-ab782466bf1c"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Organizations List",
+              "description": null,
+              "arguments": {
+                "name": "Everbridge",
+                "config": "",
+                "params": [],
+                "version": "1.0.0",
+                "connector": "everbridge",
+                "operation": "get_organizations_list",
+                "operationTitle": "Get Organizations List",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "c6294430-3ec8-4b23-8e0f-83f40a4fe252"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Get Organizations List",
+              "targetStep": "/api/3/workflow_steps/c6294430-3ec8-4b23-8e0f-83f40a4fe252",
+              "sourceStep": "/api/3/workflow_steps/a7594d68-f50b-4876-8c0e-ab782466bf1c",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "2819b5d9-7454-4662-a0bc-2fcb8eed986e"
+            }
+          ],
+          "groups": [],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "75d48cf2-8eac-4b20-84be-e28c9e751bfe",
+          "id": 5985,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "everbridge"
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Update Asset",
+          "aliasName": null,
+          "tag": null,
+          "description": "Update an specific asset in Everbridge based on the organization ID, asset ID and other input parameters that you have specified.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1665053659,
+          "collection": "/api/3/workflow_collections/b9270e91-7c2e-4f56-8718-470049a5fc9d",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/f7525427-2423-473d-99bb-7897bbb39977",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Update Asset",
+              "description": null,
+              "arguments": {
+                "name": "Everbridge",
+                "config": "",
+                "params": {
+                  "id": 1,
+                  "city": "",
+                  "name": "",
+                  "state": "",
+                  "street": "",
+                  "floorNo": "",
+                  "postalCode": "",
+                  "autoGeoCoding": false,
+                  "organizationId": 1,
+                  "countryFullName": ""
+                },
+                "version": "1.0.0",
+                "connector": "everbridge",
+                "operation": "update_asset",
+                "operationTitle": "Update Asset",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "8b87b38f-61f3-4bf4-9d8a-0915850835a2"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "fb043c9d-734d-4750-8ea2-3bcab7d78646",
+                "title": "Everbridge: Update Asset",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
+              "uuid": "f7525427-2423-473d-99bb-7897bbb39977"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Update Asset",
+              "targetStep": "/api/3/workflow_steps/8b87b38f-61f3-4bf4-9d8a-0915850835a2",
+              "sourceStep": "/api/3/workflow_steps/f7525427-2423-473d-99bb-7897bbb39977",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "07c67ab5-a57f-464e-b3ca-67a2263d2d7f"
+            }
+          ],
+          "groups": [],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "ac52e06f-5e9a-4ec8-9da1-2b573aa8ef2d",
+          "id": 5986,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "everbridge"
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get Asset Details",
+          "aliasName": null,
+          "tag": null,
+          "description": "Retrieve a specific asset from Everbridge based on the organization ID, asset/external ID that you have specified.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1665053599,
+          "collection": "/api/3/workflow_collections/b9270e91-7c2e-4f56-8718-470049a5fc9d",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/cdd512a5-62b8-4d99-8408-8d1e2ec8f990",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Asset Details",
+              "description": null,
+              "arguments": {
+                "name": "Everbridge",
+                "config": "",
+                "params": {
+                  "id": "1",
+                  "organizationId": 1
+                },
+                "version": "1.0.0",
+                "connector": "everbridge",
+                "operation": "get_asset_details",
+                "operationTitle": "Get Asset Details",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "0e496293-bb51-419f-9946-37615d4891d0"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "15e3cf04-8b8a-46d2-91a8-93dffe8ec772",
+                "title": "Everbridge: Get Asset Details",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
+              "uuid": "cdd512a5-62b8-4d99-8408-8d1e2ec8f990"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Get Asset Details",
+              "targetStep": "/api/3/workflow_steps/0e496293-bb51-419f-9946-37615d4891d0",
+              "sourceStep": "/api/3/workflow_steps/cdd512a5-62b8-4d99-8408-8d1e2ec8f990",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "23f834f6-e019-4c1a-93a0-abe6cbf2089a"
+            }
+          ],
+          "groups": [],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "cee0ceee-ab06-4deb-995e-c7bae4d448d8",
+          "id": 5987,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "everbridge"
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get Assets List",
+          "aliasName": null,
+          "tag": null,
+          "description": "Retrieves a list of assets from Everbridge based on the organization ID and other input parameters that you have specified.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1665053543,
+          "collection": "/api/3/workflow_collections/b9270e91-7c2e-4f56-8718-470049a5fc9d",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/a8533298-c8af-4d94-a6d4-717f8e3ed2ac",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Assets List",
+              "description": null,
+              "arguments": {
+                "name": "Everbridge",
+                "config": "",
+                "params": {
+                  "pageNumber": 1,
+                  "organizationId": 1
+                },
+                "version": "1.0.0",
+                "connector": "everbridge",
+                "operation": "get_assets_list",
+                "operationTitle": "Get Assets List",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "517095e9-0242-4bb8-931b-9edb007514e3"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "fa643fa4-3d9b-4be0-8ceb-008284850ea0",
+                "title": "Everbridge: Get Assets List",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
+              "uuid": "a8533298-c8af-4d94-a6d4-717f8e3ed2ac"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Get Assets List",
+              "targetStep": "/api/3/workflow_steps/517095e9-0242-4bb8-931b-9edb007514e3",
+              "sourceStep": "/api/3/workflow_steps/a8533298-c8af-4d94-a6d4-717f8e3ed2ac",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "8cf760b8-0229-436c-8aec-c7b1c6720cbe"
+            }
+          ],
+          "groups": [],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "d17b191f-1b25-4f30-a1d9-7975edd07c15",
+          "id": 5988,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "everbridge"
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get Incident List",
+          "aliasName": null,
+          "tag": null,
+          "description": "Retrieves a list of incidents from Everbridge based on the organization ID and other input parameters that you have specified.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1665053377,
+          "collection": "/api/3/workflow_collections/b9270e91-7c2e-4f56-8718-470049a5fc9d",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/848883fa-770a-43f7-8ace-5e4819690133",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "cb837e9d-0035-4e2e-b5bb-08291835428b",
+                "title": "Everbridge: Get Incident List",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
+              "uuid": "848883fa-770a-43f7-8ace-5e4819690133"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Incident List",
+              "description": null,
+              "arguments": {
+                "name": "Everbridge",
+                "config": "",
+                "params": {
+                  "status": "All",
+                  "endTime": "",
+                  "dateType": "Created Date",
+                  "onlyOpen": false,
+                  "pageSize": 10,
+                  "startTime": "",
+                  "pageNumber": 1,
+                  "incidentType": "Incident",
+                  "organizationId": 1
+                },
+                "version": "1.0.0",
+                "connector": "everbridge",
+                "operation": "get_incident_list",
+                "operationTitle": "Get Incident List",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "d5b2b683-76ed-4290-9d16-bf1d34e90917"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Get Incident List",
+              "targetStep": "/api/3/workflow_steps/d5b2b683-76ed-4290-9d16-bf1d34e90917",
+              "sourceStep": "/api/3/workflow_steps/848883fa-770a-43f7-8ace-5e4819690133",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "c3145c59-384b-4019-bb36-153e54bf158d"
+            }
+          ],
+          "groups": [],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "e4bbd2fb-b623-480d-bfb9-addf7ee23968",
+          "id": 5989,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "everbridge"
+          ]
+        }
+      ]
+    }
+  ],
+  "exported_tags": [
+    "everbridge",
+    "dataingestion",
+    "fetch",
+    "create",
+    "ingest"
+  ]
+}
