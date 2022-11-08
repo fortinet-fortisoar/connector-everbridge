@@ -6,11 +6,13 @@
       "name": "Sample - Everbridge - 1.0.0",
       "description": "Sample playbooks for \"Everbridge\" connector. If you are planning to use any of the sample playbooks in your environment, ensure that you clone those playbooks and move them to a different collection, since the sample playbook collection gets deleted during connector upgrade and delete.",
       "visible": true,
-      "image": null,
+      "image": "/api/3/images/bc54f05b-3c79-40d4-9715-5b36732bf725",
       "uuid": "b9270e91-7c2e-4f56-8718-470049a5fc9d",
-      "id": 403,
-      "deletedAt": null,
-      "importedBy": [],
+      "id": 274,
+      "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+      "createDate": 1667905797,
+      "modifyUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+      "modifyDate": 1667905797,
       "recordTags": [],
       "workflows": [
         {
@@ -53,8 +55,8 @@
               "top": "165",
               "left": "125",
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
-              "group": null,
-              "uuid": "0b253fde-506f-47f7-a656-851a4a8cd0c8"
+              "uuid": "0b253fde-506f-47f7-a656-851a4a8cd0c8",
+              "id": 11145
             },
             {
               "@type": "WorkflowStep",
@@ -81,8 +83,8 @@
               "top": "30",
               "left": "125",
               "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
-              "group": null,
-              "uuid": "5ea6cf4e-e59d-4dd3-b170-04e45495349d"
+              "uuid": "5ea6cf4e-e59d-4dd3-b170-04e45495349d",
+              "id": 11146
             }
           ],
           "routes": [
@@ -96,17 +98,18 @@
               "uuid": "906a0d81-2727-467a-920e-93b2b069cc10"
             }
           ],
-          "groups": [],
           "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
           "uuid": "1b10475a-2d05-4463-99f9-3fbefadec00a",
-          "id": 5981,
-          "owners": [],
-          "isPrivate": false,
-          "deletedAt": null,
-          "importedBy": [],
           "recordTags": [
             "everbridge"
-          ]
+          ],
+          "id": 4215,
+          "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+          "createDate": 1667905797,
+          "modifyUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+          "modifyDate": 1667905797,
+          "owners": [],
+          "isPrivate": false
         },
         {
           "@type": "Workflow",
@@ -121,7 +124,7 @@
           "remoteExecutableFlag": false,
           "parameters": [],
           "synchronous": false,
-          "lastModifyDate": 1665382727,
+          "lastModifyDate": 1667906121,
           "collection": "/api/3/workflow_collections/b9270e91-7c2e-4f56-8718-470049a5fc9d",
           "versions": [],
           "triggerStep": "/api/3/workflow_steps/08bd59ff-f4f4-4df7-895a-1f4c088834bf",
@@ -135,7 +138,7 @@
                   "input": {
                     "params": []
                   },
-                  "_configuration_schema": "[\n{\n    \"title\": \"Pull Threats from Last X Minutes\",\n    \"name\": \"Pull_Sample_Events_in_Past_X_Minutes\",\n    \"type\": \"text\",\n    \"tooltip\": \"Fetch incidents from last X minutes. e.g 5\",\n    \"required\": true,\n    \"editable\": true,\n    \"visible\": true,\n    \"value\": 10\n  }\n]",
+                  "_configuration_schema": "[\n  {\n    \"title\": \"Organization ID\",\n    \"name\": \"organizationId\",\n    \"description\": \"Specify the ID of the organization based on which you want to retrieve incidents from Everbridge.\",\n    \"type\": \"integer\",\n    \"visible\": true,\n    \"editable\": true,\n    \"required\": true,\n    \"tooltip\": \"Specify the ID of the organization based on which you want to retrieve incidents from Everbridge.\"\n  },\n  {\n    \"title\": \"Pull Threats from Last X Minutes\",\n    \"name\": \"Pull_Sample_Events_in_Past_X_Minutes\",\n    \"type\": \"text\",\n    \"tooltip\": \"Fetch incidents from last X minutes. e.g 5\",\n    \"required\": true,\n    \"editable\": true,\n    \"visible\": true,\n    \"value\": 10\n  }\n]",
                   "EverbridgeLastAlertPullTime": "EverbridgeLastAlertPullTime_{{vars['audit_info']['cyops_playbook_iri'].split('/')[-1].replace('-','_')}}"
                 }
               },
@@ -143,8 +146,8 @@
               "top": "30",
               "left": "125",
               "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62",
-              "group": null,
-              "uuid": "08bd59ff-f4f4-4df7-895a-1f4c088834bf"
+              "uuid": "08bd59ff-f4f4-4df7-895a-1f4c088834bf",
+              "id": 11147
             },
             {
               "@type": "WorkflowStep",
@@ -158,8 +161,8 @@
               "top": "435",
               "left": "125",
               "stepType": "/api/3/workflow_step_types/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
-              "group": null,
-              "uuid": "5e15c259-ddf5-4221-b6d5-c283a1d8f4f3"
+              "uuid": "5e15c259-ddf5-4221-b6d5-c283a1d8f4f3",
+              "id": 11148
             },
             {
               "@type": "WorkflowStep",
@@ -181,8 +184,8 @@
               "top": "300",
               "left": "125",
               "stepType": "/api/3/workflow_step_types/0109f35d-090b-4a2b-bd8a-94cbc3508562",
-              "group": null,
-              "uuid": "63ffa2a4-089f-4572-8fef-0f315f26da6c"
+              "uuid": "63ffa2a4-089f-4572-8fef-0f315f26da6c",
+              "id": 11149
             },
             {
               "@type": "WorkflowStep",
@@ -200,7 +203,7 @@
                   "startTime": "{{vars.last_pull_time}}",
                   "pageNumber": "",
                   "incidentType": "Incident",
-                  "organizationId": 1
+                  "organizationId": "{{vars.organizationId}}"
                 },
                 "version": "1.0.0",
                 "connector": "everbridge",
@@ -213,8 +216,8 @@
               "top": "570",
               "left": "125",
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
-              "group": null,
-              "uuid": "a23ba333-4a0f-4f2c-ac1d-b5a9dc2439eb"
+              "uuid": "a23ba333-4a0f-4f2c-ac1d-b5a9dc2439eb",
+              "id": 11150
             },
             {
               "@type": "WorkflowStep",
@@ -229,22 +232,23 @@
               "top": "705",
               "left": "125",
               "stepType": "/api/3/workflow_step_types/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
-              "group": null,
-              "uuid": "e931b4d1-7515-4c14-b4b3-ba7f509564c3"
+              "uuid": "e931b4d1-7515-4c14-b4b3-ba7f509564c3",
+              "id": 11151
             },
             {
               "@type": "WorkflowStep",
               "name": "Configuration",
               "description": null,
               "arguments": {
+                "organizationId": "1",
                 "Pull_Sample_Events_in_Past_X_Minutes": "10"
               },
               "status": null,
               "top": "165",
               "left": "125",
               "stepType": "/api/3/workflow_step_types/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
-              "group": null,
-              "uuid": "fd92983b-8439-4b8a-bc12-71cf447a4767"
+              "uuid": "fd92983b-8439-4b8a-bc12-71cf447a4767",
+              "id": 11152
             }
           ],
           "routes": [
@@ -294,19 +298,20 @@
               "uuid": "d1306b76-80ae-4614-9245-998ba539cb4d"
             }
           ],
-          "groups": [],
           "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
           "uuid": "2acd6088-234b-4f98-ac8d-6e76bd3b243e",
-          "id": 5982,
-          "owners": [],
-          "isPrivate": false,
-          "deletedAt": null,
-          "importedBy": [],
           "recordTags": [
             "dataingestion",
             "fetch",
             "everbridge"
-          ]
+          ],
+          "id": 4216,
+          "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+          "createDate": 1667905797,
+          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "modifyDate": 1667906121,
+          "owners": [],
+          "isPrivate": false
         },
         {
           "@type": "Workflow",
@@ -351,8 +356,8 @@
               "top": "30",
               "left": "125",
               "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
-              "group": null,
-              "uuid": "4ce7f1fe-e522-40bc-acfc-11140ae233ad"
+              "uuid": "4ce7f1fe-e522-40bc-acfc-11140ae233ad",
+              "id": 11153
             },
             {
               "@type": "WorkflowStep",
@@ -383,8 +388,8 @@
               "top": "165",
               "left": "125",
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
-              "group": null,
-              "uuid": "801c60f9-8f00-4831-b043-2710f778995a"
+              "uuid": "801c60f9-8f00-4831-b043-2710f778995a",
+              "id": 11154
             }
           ],
           "routes": [
@@ -398,17 +403,18 @@
               "uuid": "da94f862-b984-4183-94cd-846b253e9afa"
             }
           ],
-          "groups": [],
           "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
           "uuid": "52fdec95-0df1-4792-b610-179aba029506",
-          "id": 5983,
-          "owners": [],
-          "isPrivate": false,
-          "deletedAt": null,
-          "importedBy": [],
           "recordTags": [
             "everbridge"
-          ]
+          ],
+          "id": 4217,
+          "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+          "createDate": 1667905797,
+          "modifyUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+          "modifyDate": 1667905797,
+          "owners": [],
+          "isPrivate": false
         },
         {
           "@type": "Workflow",
@@ -453,8 +459,8 @@
               "top": "30",
               "left": "125",
               "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
-              "group": null,
-              "uuid": "4887a66c-3897-432a-9d5e-8e0800481a22"
+              "uuid": "4887a66c-3897-432a-9d5e-8e0800481a22",
+              "id": 11155
             },
             {
               "@type": "WorkflowStep",
@@ -467,8 +473,8 @@
               "top": "300",
               "left": "125",
               "stepType": "/api/3/workflow_step_types/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
-              "group": null,
-              "uuid": "95c507f4-864c-4aff-8f85-28c34b2edf19"
+              "uuid": "95c507f4-864c-4aff-8f85-28c34b2edf19",
+              "id": 11156
             },
             {
               "@type": "WorkflowStep",
@@ -485,8 +491,8 @@
               "top": "165",
               "left": "125",
               "stepType": "/api/3/workflow_step_types/74932bdc-b8b6-4d24-88c4-1a4dfbc524f3",
-              "group": null,
-              "uuid": "cf25e6df-ab04-423f-bffd-ae3faf5a0558"
+              "uuid": "cf25e6df-ab04-423f-bffd-ae3faf5a0558",
+              "id": 11157
             },
             {
               "@type": "WorkflowStep",
@@ -507,8 +513,8 @@
               "top": "570",
               "left": "125",
               "stepType": "/api/3/workflow_step_types/0109f35d-090b-4a2b-bd8a-94cbc3508562",
-              "group": null,
-              "uuid": "dcbc19af-2917-4de0-b6f3-c59444ed07d6"
+              "uuid": "dcbc19af-2917-4de0-b6f3-c59444ed07d6",
+              "id": 11158
             },
             {
               "@type": "WorkflowStep",
@@ -549,8 +555,8 @@
               "top": "435",
               "left": "125",
               "stepType": "/api/3/workflow_step_types/2597053c-e718-44b4-8394-4d40fe26d357",
-              "group": null,
-              "uuid": "e737447c-71db-49a0-b1d9-202420147594"
+              "uuid": "e737447c-71db-49a0-b1d9-202420147594",
+              "id": 11159
             }
           ],
           "routes": [
@@ -591,20 +597,21 @@
               "uuid": "fa66890f-3bed-4714-a6a4-d228901773f4"
             }
           ],
-          "groups": [],
           "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
           "uuid": "5e8e3aa7-162e-4fec-9e94-a57e364b779b",
-          "id": 5984,
-          "owners": [],
-          "isPrivate": false,
-          "deletedAt": null,
-          "importedBy": [],
           "recordTags": [
             "dataingestion",
             "create",
             "ingest",
             "everbridge"
-          ]
+          ],
+          "id": 4218,
+          "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+          "createDate": 1667905797,
+          "modifyUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+          "modifyDate": 1667905797,
+          "owners": [],
+          "isPrivate": false
         },
         {
           "@type": "Workflow",
@@ -649,8 +656,8 @@
               "top": "30",
               "left": "125",
               "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
-              "group": null,
-              "uuid": "a7594d68-f50b-4876-8c0e-ab782466bf1c"
+              "uuid": "a7594d68-f50b-4876-8c0e-ab782466bf1c",
+              "id": 11160
             },
             {
               "@type": "WorkflowStep",
@@ -671,8 +678,8 @@
               "top": "165",
               "left": "125",
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
-              "group": null,
-              "uuid": "c6294430-3ec8-4b23-8e0f-83f40a4fe252"
+              "uuid": "c6294430-3ec8-4b23-8e0f-83f40a4fe252",
+              "id": 11161
             }
           ],
           "routes": [
@@ -686,17 +693,18 @@
               "uuid": "2819b5d9-7454-4662-a0bc-2fcb8eed986e"
             }
           ],
-          "groups": [],
           "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
           "uuid": "75d48cf2-8eac-4b20-84be-e28c9e751bfe",
-          "id": 5985,
-          "owners": [],
-          "isPrivate": false,
-          "deletedAt": null,
-          "importedBy": [],
           "recordTags": [
             "everbridge"
-          ]
+          ],
+          "id": 4219,
+          "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+          "createDate": 1667905797,
+          "modifyUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+          "modifyDate": 1667905797,
+          "owners": [],
+          "isPrivate": false
         },
         {
           "@type": "Workflow",
@@ -746,8 +754,8 @@
               "top": "165",
               "left": "125",
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
-              "group": null,
-              "uuid": "8b87b38f-61f3-4bf4-9d8a-0915850835a2"
+              "uuid": "8b87b38f-61f3-4bf4-9d8a-0915850835a2",
+              "id": 11162
             },
             {
               "@type": "WorkflowStep",
@@ -774,8 +782,8 @@
               "top": "30",
               "left": "125",
               "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
-              "group": null,
-              "uuid": "f7525427-2423-473d-99bb-7897bbb39977"
+              "uuid": "f7525427-2423-473d-99bb-7897bbb39977",
+              "id": 11163
             }
           ],
           "routes": [
@@ -789,17 +797,18 @@
               "uuid": "07c67ab5-a57f-464e-b3ca-67a2263d2d7f"
             }
           ],
-          "groups": [],
           "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
           "uuid": "ac52e06f-5e9a-4ec8-9da1-2b573aa8ef2d",
-          "id": 5986,
-          "owners": [],
-          "isPrivate": false,
-          "deletedAt": null,
-          "importedBy": [],
           "recordTags": [
             "everbridge"
-          ]
+          ],
+          "id": 4220,
+          "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+          "createDate": 1667905797,
+          "modifyUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+          "modifyDate": 1667905797,
+          "owners": [],
+          "isPrivate": false
         },
         {
           "@type": "Workflow",
@@ -841,8 +850,8 @@
               "top": "165",
               "left": "125",
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
-              "group": null,
-              "uuid": "0e496293-bb51-419f-9946-37615d4891d0"
+              "uuid": "0e496293-bb51-419f-9946-37615d4891d0",
+              "id": 11164
             },
             {
               "@type": "WorkflowStep",
@@ -869,8 +878,8 @@
               "top": "30",
               "left": "125",
               "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
-              "group": null,
-              "uuid": "cdd512a5-62b8-4d99-8408-8d1e2ec8f990"
+              "uuid": "cdd512a5-62b8-4d99-8408-8d1e2ec8f990",
+              "id": 11165
             }
           ],
           "routes": [
@@ -884,17 +893,18 @@
               "uuid": "23f834f6-e019-4c1a-93a0-abe6cbf2089a"
             }
           ],
-          "groups": [],
           "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
           "uuid": "cee0ceee-ab06-4deb-995e-c7bae4d448d8",
-          "id": 5987,
-          "owners": [],
-          "isPrivate": false,
-          "deletedAt": null,
-          "importedBy": [],
           "recordTags": [
             "everbridge"
-          ]
+          ],
+          "id": 4221,
+          "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+          "createDate": 1667905797,
+          "modifyUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+          "modifyDate": 1667905797,
+          "owners": [],
+          "isPrivate": false
         },
         {
           "@type": "Workflow",
@@ -936,8 +946,8 @@
               "top": "165",
               "left": "125",
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
-              "group": null,
-              "uuid": "517095e9-0242-4bb8-931b-9edb007514e3"
+              "uuid": "517095e9-0242-4bb8-931b-9edb007514e3",
+              "id": 11166
             },
             {
               "@type": "WorkflowStep",
@@ -964,8 +974,8 @@
               "top": "30",
               "left": "125",
               "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
-              "group": null,
-              "uuid": "a8533298-c8af-4d94-a6d4-717f8e3ed2ac"
+              "uuid": "a8533298-c8af-4d94-a6d4-717f8e3ed2ac",
+              "id": 11167
             }
           ],
           "routes": [
@@ -979,17 +989,18 @@
               "uuid": "8cf760b8-0229-436c-8aec-c7b1c6720cbe"
             }
           ],
-          "groups": [],
           "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
           "uuid": "d17b191f-1b25-4f30-a1d9-7975edd07c15",
-          "id": 5988,
-          "owners": [],
-          "isPrivate": false,
-          "deletedAt": null,
-          "importedBy": [],
           "recordTags": [
             "everbridge"
-          ]
+          ],
+          "id": 4222,
+          "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+          "createDate": 1667905797,
+          "modifyUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+          "modifyDate": 1667905797,
+          "owners": [],
+          "isPrivate": false
         },
         {
           "@type": "Workflow",
@@ -1034,8 +1045,8 @@
               "top": "30",
               "left": "125",
               "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
-              "group": null,
-              "uuid": "848883fa-770a-43f7-8ace-5e4819690133"
+              "uuid": "848883fa-770a-43f7-8ace-5e4819690133",
+              "id": 11168
             },
             {
               "@type": "WorkflowStep",
@@ -1066,8 +1077,8 @@
               "top": "165",
               "left": "125",
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
-              "group": null,
-              "uuid": "d5b2b683-76ed-4290-9d16-bf1d34e90917"
+              "uuid": "d5b2b683-76ed-4290-9d16-bf1d34e90917",
+              "id": 11169
             }
           ],
           "routes": [
@@ -1081,17 +1092,18 @@
               "uuid": "c3145c59-384b-4019-bb36-153e54bf158d"
             }
           ],
-          "groups": [],
           "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
           "uuid": "e4bbd2fb-b623-480d-bfb9-addf7ee23968",
-          "id": 5989,
-          "owners": [],
-          "isPrivate": false,
-          "deletedAt": null,
-          "importedBy": [],
           "recordTags": [
             "everbridge"
-          ]
+          ],
+          "id": 4223,
+          "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+          "createDate": 1667905797,
+          "modifyUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+          "modifyDate": 1667905797,
+          "owners": [],
+          "isPrivate": false
         }
       ]
     }

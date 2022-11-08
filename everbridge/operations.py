@@ -17,9 +17,9 @@ class Everbridge(object):
         self.password = config.get('password')
         url = config.get('server_url').strip('/')
         if not url.startswith('https://') and not url.startswith('http://'):
-            self.url = 'https://{0}/rest/'.format(url)
+            self.url = 'https://{0}/rest'.format(url)
         else:
-            self.url = url + '/rest/'
+            self.url = url + '/rest'
         self.verify_ssl = config.get('verify_ssl')
         self.token = generate_token(self.username, self.password)
 
