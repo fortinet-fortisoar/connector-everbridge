@@ -13,7 +13,7 @@
   "ingestion_modes": [
     "scheduled"
   ],
-  "help_online": "",
+  "help_online": "https://docs.fortinet.com/document/fortisoar/1.0.0/everbridge/437/everbridge-v1-0-0",
   "configuration": {
     "fields": [
       {
@@ -61,7 +61,7 @@
     {
       "title": "Get Organizations List",
       "operation": "get_organizations_list",
-      "description": "Retrieves a list of organizations from Everbridge.",
+      "description": "Retrieves a list of all your organizations configured on Everbridge.",
       "category": "investigation",
       "annotation": "get_organizations_list",
       "enabled": true,
@@ -71,7 +71,7 @@
     {
       "title": "Get Incident List",
       "operation": "get_incident_list",
-      "description": "Retrieves a list of incidents from Everbridge based on the organization ID and other input parameters that you have specified.",
+      "description": "Retrieves a list of incidents from Everbridge based on the organization ID and other input parameters you have specified.",
       "category": "investigation",
       "annotation": "get_incident_list",
       "enabled": true,
@@ -79,22 +79,22 @@
         {
           "title": "Organization ID",
           "name": "organizationId",
-          "description": "Specify the ID of the organization based on which you want to retrieve incidents from Everbridge.",
+          "description": "Specify the ID of the organization for which you want to retrieve incidents from Everbridge.",
           "type": "integer",
           "visible": true,
           "editable": true,
           "required": true,
-          "tooltip": "Specify the ID of the organization based on which you want to retrieve incidents from Everbridge."
+          "tooltip": "Specify the ID of the organization for which you want to retrieve incidents from Everbridge."
         },
         {
           "title": "Date Type",
           "name": "dateType",
           "type": "select",
-          "description": "Select the date type of the incident based on which you want to retrieve incidents from Everbridge. You can choose from the following options: Created Date, Last Modified Date, or Closed Date.",
+          "description": "(Optional) Select the type of date of the incidents based on which you want to retrieve incidents from Everbridge. You can choose from the following options: Created Date, Last Modified Date, or Closed Date.",
           "required": false,
           "visible": true,
           "editable": true,
-          "tooltip": "Note: DateType will be used with time range of startTime or endTime.",
+          "tooltip": "(Optional) Select the type of date of the incidents based on which you want to retrieve incidents from Everbridge. You can choose from the following options: Created Date, Last Modified Date, or Closed Date. Note: DateType will be used with time range of startTime or endTime.",
           "options": [
             "Created Date",
             "Last Modified Date",
@@ -106,31 +106,31 @@
           "title": "Start Time",
           "name": "startTime",
           "type": "datetime",
-          "description": "Specify the starting DateTime from when you want to search for incidents in Everbridge.",
+          "description": "(Optional) Specify the starting DateTime from when you want to search for incidents in Everbridge.",
           "required": false,
           "visible": true,
           "editable": true,
-          "tooltip": "Specify the starting DateTime from when you want to search for incidents in Everbridge."
+          "tooltip": "(Optional) Specify the starting DateTime from when you want to search for incidents in Everbridge."
         },
         {
           "title": "End Time",
           "name": "endTime",
           "type": "datetime",
-          "description": "Specify the ending DateTime from when you want to search for incidents in Everbridge.",
+          "description": "(Optional) Specify the ending DateTime from when you want to search for incidents in Everbridge.",
           "required": false,
           "visible": true,
           "editable": true,
-          "tooltip": "Specify the ending DateTime from when you want to search for incidents in Everbridge."
+          "tooltip": "(Optional) Specify the ending DateTime from when you want to search for incidents in Everbridge."
         },
         {
           "title": "Incident Type",
           "name": "incidentType",
           "type": "select",
-          "description": "Select the type of the incident based on which you want to retrieve incidents from Everbridge. You can choose from the following options: Incident, Scenario, or All.",
+          "description": "(Optional) Select the type of incident based on which you want to retrieve incidents from Everbridge. You can choose from the following options: Incident, Scenario, or All.",
           "required": false,
           "visible": true,
           "editable": true,
-          "tooltip": "Select the type of the incident based on which you want to retrieve incidents from Everbridge. You can choose from the following options: Incident, Scenario, or All.",
+          "tooltip": "(Optional) Select the type of incident based on which you want to retrieve incidents from Everbridge. You can choose from the following options: Incident, Scenario, or All.",
           "options": [
             "Incident",
             "Scenario",
@@ -142,11 +142,11 @@
           "title": "Incident Status",
           "name": "status",
           "type": "select",
-          "description": "Select the status of the incident based on which you want to retrieve incidents from Everbridge. You can choose from the following options: All, Open, or Closed.",
+          "description": "(Optional) Select the status of the incident based on which you want to retrieve incidents from Everbridge. You can choose from the following options: All, Open, or Closed.",
           "required": false,
           "visible": true,
           "editable": true,
-          "tooltip": "Select the status of the incident based on which you want to retrieve incidents from Everbridge. You can choose from the following options: All, open, or Closed.",
+          "tooltip": "(Optional) Select the status of the incident based on which you want to retrieve incidents from Everbridge. You can choose from the following options: All, Open, or Closed.",
           "options": [
             "All",
             "Open",
@@ -157,34 +157,34 @@
         {
           "title": "Only Open",
           "name": "onlyOpen",
-          "description": "Select this checkbox whether if you want only open incidents should be returned from Everbridge.",
+          "description": "(Optional) Select this checkbox to retrieve only open incidents from Everbridge.",
           "type": "checkbox",
           "visible": true,
           "editable": true,
           "required": false,
-          "tooltip": "Select this checkbox whether if you want only open incidents should be returned from Everbridge.",
+          "tooltip": "(Optional) Select this checkbox to retrieve only open incidents from Everbridge.",
           "value": false
         },
         {
           "title": "Page Number",
           "name": "pageNumber",
-          "description": "(Optional) Index of the first item to be returned by this operation. This parameter is useful if you want to get a subset of records, say messages starting from the 10th message. By default, this is set as 1.",
+          "description": "(Optional) Specify the page number from which to retrieve results. Page numbering, by default, starts on page '1'.",
           "type": "integer",
           "visible": true,
           "editable": true,
           "required": false,
-          "tooltip": "(Optional) Index of the first item to be returned by this operation. This parameter is useful if you want to get a subset of records, say messages starting from the 10th message. By default, this is set as 1.",
+          "tooltip": "(Optional) Specify the page number from which to retrieve results. Page numbering, by default, starts on page '1'.",
           "value": 1
         },
         {
           "title": "Page Size",
           "name": "pageSize",
-          "description": "Specify the number of results, per page, that you want to include in the response of this operation. By default, this is set as 10.",
+          "description": "(Optional) Specify the number of results, per page, that you want to include in the response of this operation. By default, this is set as '10'.",
           "type": "integer",
           "visible": true,
           "editable": true,
           "required": false,
-          "tooltip": "Specify the number of results, per page, that you want to include in the response of this operation. By default, this is set as 10.",
+          "tooltip": "(Optional) Specify the number of results, per page, that you want to include in the response of this operation. By default, this is set as '10'.",
           "value": 10
         }
       ],
@@ -201,22 +201,22 @@
         {
           "title": "Organization ID",
           "name": "organizationId",
-          "description": "Specify the ID of the organization based on which you want to retrieve incident from Everbridge.",
+          "description": "Specify the ID of the organization for which you want to retrieve the specific incident from Everbridge.",
           "type": "integer",
           "visible": true,
           "editable": true,
           "required": true,
-          "tooltip": "Specify the ID of the organization based on which you want to retrieve incident from Everbridge."
+          "tooltip": "Specify the ID of the organization for which you want to retrieve the specific incident from Everbridge."
         },
         {
           "title": "Incident ID",
           "name": "incidentId",
-          "description": "Specify the ID of the incident based on which you want to retrieve incident from Everbridge.",
+          "description": "Specify the ID of the incident that you want to retrieve from Everbridge.",
           "type": "integer",
           "visible": true,
           "editable": true,
           "required": true,
-          "tooltip": "Specify the ID of the incident based on which you want to retrieve incident from Everbridge."
+          "tooltip": "Specify the ID of the incident that you want to retrieve from Everbridge."
         }
       ],
       "output_schema": {}
@@ -224,7 +224,7 @@
     {
       "title": "Update Incident",
       "operation": "update_incident",
-      "description": "Update an specific incident in Everbridge based on the organization ID, incident ID and other input parameters that you have specified.",
+      "description": "Update a specific incident in Everbridge based on the organization ID, incident ID, and other input parameters that you have specified.",
       "category": "investigation",
       "annotation": "update_incident",
       "enabled": true,
@@ -232,32 +232,32 @@
         {
           "title": "Organization ID",
           "name": "organizationId",
-          "description": "Specify the ID of the organization based on which you want to update incident in Everbridge.",
+          "description": "Specify the ID of the organization for which you want to update incidents in Everbridge.",
           "type": "integer",
           "visible": true,
           "editable": true,
           "required": true,
-          "tooltip": "Specify the ID of the organization based on which you want to update incident in Everbridge."
+          "tooltip": "Specify the ID of the organization for which you want to update incidents in Everbridge."
         },
         {
           "title": "Incident ID",
           "name": "incidentId",
-          "description": "Specify the ID of the incident based on which you want to update incident in Everbridge.",
+          "description": "Specify the ID of the incident that you want to update in Everbridge.",
           "type": "integer",
           "visible": true,
           "editable": true,
           "required": true,
-          "tooltip": "Specify the ID of the incident based on which you want to update incident in Everbridge."
+          "tooltip": "Specify the ID of the incident that you want to update in Everbridge."
         },
         {
           "title": "Incident Action",
           "name": "incidentAction",
-          "description": "Select the action of the incident based on which you want to update incident in Everbridge. You can choose from the following options: Update, UpdateThenClose, CloseWithNotification, or CloseWithoutNotification.",
+          "description": "(Optional) Select the action that you want to update in the specific incident in Everbridge. You can choose from the following options: Update, UpdateThenClose, CloseWithNotification, or CloseWithoutNotification.",
           "type": "select",
           "visible": true,
           "editable": true,
           "required": true,
-          "tooltip": "Select the action of the incident based on which you want to update incident in Everbridge. You can choose from the following options: Update, UpdateThenClose, CloseWithNotification, or CloseWithoutNotification.",
+          "tooltip": "(Optional) Select the action that you want to update in the specific incident in Everbridge. You can choose from the following options: Update, UpdateThenClose, CloseWithNotification, or CloseWithoutNotification.",
           "options": [
             "Update",
             "UpdateThenClose",
@@ -269,11 +269,11 @@
           "title": "Incident Status",
           "name": "incidentStatus",
           "type": "select",
-          "description": "Select the status of the incident based on which you want to update incident in Everbridge. You can choose from the following options: All, Open, or Closed.",
+          "description": "(Optional) Select the status of the incident that you want to update in the specific incident in Everbridge. You can choose from the following options: All, Open, or Closed.",
           "required": false,
           "visible": true,
           "editable": true,
-          "tooltip": "Select the status of the incident based on which you want to update incident in Everbridge. You can choose from the following options: All, open, or Closed.",
+          "tooltip": "(Optional) Select the status of the incident that you want to update in the specific incident in Everbridge. You can choose from the following options: All, Open, or Closed.",
           "options": [
             "All",
             "Open",
@@ -284,11 +284,11 @@
           "title": "Incident Type",
           "name": "incidentType",
           "type": "select",
-          "description": "Select the type of the incident based on which you want to update incident in Everbridge. You can choose from the following options: Incident, Scenario, or All.",
+          "description": "(Optional) Select the type of incident that you want to update in the specific incident in Everbridge. You can choose from the following options: Incident, Scenario, or All.",
           "required": false,
           "visible": true,
           "editable": true,
-          "tooltip": "Select the type of the incident based on which you want to update incident in Everbridge. You can choose from the following options: Incident, Scenario, or All.",
+          "tooltip": "(Optional) Select the type of incident that you want to update in the specific incident in Everbridge. You can choose from the following options: Incident, Scenario, or All.",
           "options": [
             "Incident",
             "Scenario",
@@ -298,32 +298,32 @@
         {
           "title": "Incident Mode",
           "name": "incidentMode",
-          "description": "Specify the mode of the incident based on which you want to update incident in Everbridge.",
+          "description": "(Optional) Specify the mode of the incident that you want to update in the specific incident in Everbridge.",
           "type": "text",
           "visible": true,
           "editable": true,
           "required": false,
-          "tooltip": "Specify the mode of the incident based on which you want to update incident in Everbridge."
+          "tooltip": "(Optional) Specify the mode of the incident that you want to update in the specific incident in Everbridge."
         },
         {
           "title": "Incident Name",
           "name": "name",
-          "description": "Specify the name of the incident based on which you want to update incident in Everbridge.",
+          "description": "(Optional) Specify the name of the incident that you want to update in the specific incident in Everbridge.",
           "type": "text",
           "visible": true,
           "editable": true,
           "required": false,
-          "tooltip": "Specify the name of the incident based on which you want to update incident in Everbridge."
+          "tooltip": "(Optional) Specify the name of the incident that you want to update in the specific incident in Everbridge."
         },
         {
           "title": "Close By",
           "name": "closeBy",
-          "description": "Specify the closeBy of the incident based on which you want to update incident in Everbridge.",
+          "description": "(Optional) Specify the closeBy of the incident that you want to update in the specific incident in Everbridge.",
           "type": "text",
           "visible": true,
           "editable": true,
           "required": false,
-          "tooltip": "Specify the closeBy of the incident based on which you want to update incident in Everbridge."
+          "tooltip": "(Optional) Specify the closeBy of the incident that you want to update in the specific incident in Everbridge."
         },
         {
           "title": "Additional Fields",
@@ -332,8 +332,8 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "tooltip": "Additional fields, in the JSON format, based on which you want to update a incident in Everbridge.",
-          "description": "Additional fields, in the JSON format, based on which you want to update a incident in Everbridge."
+          "tooltip": "(Optional) Additional fields, in the JSON format, that you want to update in the specific incident in Everbridge.",
+          "description": "(Optional) Additional fields, in the JSON format, that you want to update in the specific incident in Everbridge."
         }
       ],
       "output_schema": {}
@@ -349,22 +349,22 @@
         {
           "title": "Organization ID",
           "name": "organizationId",
-          "description": "Specify the ID of the organization based on which you want to retrieve assets from Everbridge.",
+          "description": "Specify the ID of the organization for which you want to retrieve assets from Everbridge.",
           "type": "integer",
           "visible": true,
           "editable": true,
           "required": true,
-          "tooltip": "Specify the ID of the organization based on which you want to retrieve assets from Everbridge."
+          "tooltip": "Specify the ID of the organization for which you want to retrieve assets from Everbridge."
         },
         {
           "title": "Page Number",
           "name": "pageNumber",
-          "description": "(Optional) Index of the first item to be returned by this operation. This parameter is useful if you want to get a subset of records, say messages starting from the 10th message. By default, this is set as 1.",
+          "description": "(Optional) Specify the page number from which to retrieve results. Page numbering, by default, starts on page '1'.",
           "type": "integer",
           "visible": true,
           "editable": true,
           "required": false,
-          "tooltip": "(Optional) Index of the first item to be returned by this operation. This parameter is useful if you want to get a subset of records, say messages starting from the 10th message. By default, this is set as 1.",
+          "tooltip": "(Optional) Specify the page number from which to retrieve results. Page numbering, by default, starts on page '1'.",
           "value": 1
         }
       ],
@@ -373,7 +373,7 @@
     {
       "title": "Get Asset Details",
       "operation": "get_asset_details",
-      "description": "Retrieve a specific asset from Everbridge based on the organization ID, asset/external ID that you have specified.",
+      "description": "Retrieves a specific asset from Everbridge based on the organization ID, asset ID or external asset ID that you have specified.",
       "category": "investigation",
       "annotation": "get_asset_details",
       "enabled": true,
@@ -381,22 +381,22 @@
         {
           "title": "Organization ID",
           "name": "organizationId",
-          "description": "Specify the ID of the organization based on which you want to retrieve asset from Everbridge.",
+          "description": "Specify the ID of the organization for which you want to retrieve the specific asset from Everbridge.",
           "type": "integer",
           "visible": true,
           "editable": true,
           "required": true,
-          "tooltip": "Specify the ID of the organization based on which you want to retrieve asset from Everbridge."
+          "tooltip": "Specify the ID of the organization for which you want to retrieve the specific asset from Everbridge."
         },
         {
           "title": "Asset/External ID",
           "name": "id",
-          "description": "Specify the ID of the asset/external based on which you want to retrieve asset from Everbridge.",
+          "description": "Specify the asset ID or external asset ID that you want to retrieve from Everbridge.",
           "type": "text",
           "visible": true,
           "editable": true,
           "required": true,
-          "tooltip": "Specify the ID of the asset/external based on which you want to retrieve asset from Everbridge."
+          "tooltip": "Specify the asset ID or external asset ID that you want to retrieve from Everbridge."
         }
       ],
       "output_schema": {}
@@ -404,7 +404,7 @@
     {
       "title": "Update Asset",
       "operation": "update_asset",
-      "description": "Update an specific asset in Everbridge based on the organization ID, asset ID and other input parameters that you have specified.",
+      "description": "Updates a specific asset in Everbridge based on the organization ID, asset ID, and other input parameters that you have specified.",
       "category": "investigation",
       "annotation": "update_asset",
       "enabled": true,
@@ -412,113 +412,113 @@
         {
           "title": "Organization ID",
           "name": "organizationId",
-          "description": "Specify the ID of the organization based on which you want to update asset in Everbridge.",
+          "description": "Specify the ID of the organization for which you want to update the specific asset in Everbridge.",
           "type": "integer",
           "visible": true,
           "editable": true,
           "required": true,
-          "tooltip": "Specify the ID of the organization based on which you want to update asset in Everbridge."
+          "tooltip": "Specify the ID of the organization for which you want to update the specific asset in Everbridge."
         },
         {
           "title": "Asset ID",
           "name": "id",
-          "description": "Specify the ID of the asset based on which you want to update asset in Everbridge.",
+          "description": "Specify the ID of the asset that you want to update in Everbridge.",
           "type": "integer",
           "visible": true,
           "editable": true,
           "required": true,
-          "tooltip": "Specify the ID of the asset based on which you want to update asset in Everbridge."
+          "tooltip": "Specify the ID of the asset that you want to update in Everbridge."
         },
         {
           "title": "Geo Coding",
           "name": "autoGeoCoding",
-          "description": "Select this checkbox whether if you want to automatically geo coding of the asset on which you want to update asset in Everbridge. By default, this option is set as False.",
+          "description": "Select this checkbox to automatically add the geocoding of the asset that you want to update in Everbridge. By default, this option is set as False.",
           "type": "checkbox",
           "visible": true,
           "editable": true,
           "required": false,
           "value": false,
-          "tooltip": "Select this checkbox whether if you want to automatically geo coding of the asset on which you want to update asset in Everbridge. By default, this option is set as False."
+          "tooltip": "Select this checkbox to automatically add the geocoding of the asset that you want to update in Everbridge. By default, this option is set as False."
         },
         {
           "title": "Name",
           "name": "name",
-          "description": "Specify the name of the asset based on which you want to update asset in Everbridge.",
+          "description": "(Optional) Specify the name of the asset that you want to update in the specific asset in Everbridge.",
           "type": "text",
           "visible": true,
           "editable": true,
           "required": false,
-          "tooltip": "Specify the name of the asset based on which you want to update asset in Everbridge."
+          "tooltip": "(Optional) Specify the name of the asset that you want to update in the specific asset in Everbridge."
         },
         {
           "title": "Floor No",
           "name": "floorNo",
-          "description": "Specify the floor no of the asset based on which you want to update asset in Everbridge.",
+          "description": "(Optional) Specify the floor number of the asset that you want to update in the specific asset in Everbridge.",
           "type": "text",
           "visible": true,
           "editable": true,
           "required": false,
-          "tooltip": "Specify the floor no of the asset based on which you want to update asset in Everbridge."
+          "tooltip": "(Optional) Specify the floor number of the asset that you want to update in the specific asset in Everbridge."
         },
         {
           "title": "Street",
           "name": "street",
-          "description": "Specify the street of the asset based on which you want to update asset in Everbridge.",
+          "description": "(Optional) Specify the street of the asset that you want to update in the specific asset in Everbridge.",
           "type": "text",
           "visible": true,
           "editable": true,
           "required": false,
-          "tooltip": "Specify the street of the asset based on which you want to update asset in Everbridge."
+          "tooltip": "(Optional) Specify the street of the asset that you want to update in the specific asset in Everbridge."
         },
         {
           "title": "City",
           "name": "city",
-          "description": "Specify the city of the asset based on which you want to update asset in Everbridge.",
+          "description": "(Optional) Specify the city of the asset that you want to update in the specific asset in Everbridge.",
           "type": "text",
           "visible": true,
           "editable": true,
           "required": false,
-          "tooltip": "Specify the city of the asset based on which you want to update asset in Everbridge."
+          "tooltip": "(Optional) Specify the city of the asset that you want to update in the specific asset in Everbridge."
         },
         {
           "title": "State",
           "name": "state",
-          "description": "Specify the state of the asset based on which you want to update asset in Everbridge.",
+          "description": "(Optional) Specify the state of the asset that you want to update in the specific asset in Everbridge.",
           "type": "text",
           "visible": true,
           "editable": true,
           "required": false,
-          "tooltip": "Specify the state of the asset based on which you want to update asset in Everbridge."
+          "tooltip": "(Optional) Specify the state of the asset that you want to update in the specific asset in Everbridge."
         },
         {
           "title": "Country",
           "name": "country",
-          "description": "Specify the country of the asset based on which you want to update asset in Everbridge.",
+          "description": "(Optional) Specify the country of the asset that you want to update in the specific asset in Everbridge.",
           "type": "text",
           "visible": true,
           "editable": true,
           "required": false,
-          "tooltip": "Specify the country of the asset based on which you want to update asset in Everbridge."
+          "tooltip": "(Optional) Specify the country of the asset that you want to update in the specific asset in Everbridge."
         },
         {
           "title": "Country Full Name",
           "name": "countryFullName",
-          "description": "Specify the full name of the country based on which you want to update asset in Everbridge.",
+          "description": "(Optional) Specify the full name of the country of the asset that you want to update in the specific asset in Everbridge.",
           "type": "text",
           "visible": true,
           "editable": true,
           "required": false,
-          "tooltip": "Specify the full name of the country based on which you want to update asset in Everbridge."
+          "tooltip": "(Optional) Specify the full name of the country of the asset that you want to update in the specific asset in Everbridge."
         },
         {
           "title": "Postal Code",
           "name": "postalCode",
-          "description": "Specify the postal code of the asset based on which you want to update asset in Everbridge.",
+          "description": "(Optional) Specify the postal code of the asset that you want to update in the specific asset in Everbridge.",
           "type": "text",
           "visible": true,
           "editable": true,
           "required": false,
-          "tooltip": "Specify the postal code of the asset based on which you want to update asset in Everbridge."
+          "tooltip": "(Optional) Specify the postal code of the asset that you want to update in the specific asset in Everbridge."
         }
       ],
       "output_schema": {}
